@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blog
+    username: postgres
+    password: admin
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddlAuto: create
+    openInView: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+  banner:
+    location: banner.txt
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
