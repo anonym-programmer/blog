@@ -17,23 +17,18 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("user")
-                .password(passwordEncoder().encode("pass"))
+                .password("{noop}pass")
                 .roles("ADMIN");
-    }
-    
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/secured").hasRole("ADMIN")
                 .antMatchers("/login").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
+                .anyRequest().authenticated()
+            .and()
                 .httpBasic();
     }
 }

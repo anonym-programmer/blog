@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { LoginDto } from '../shared/LoginDto.model';
 
@@ -37,10 +37,12 @@ export class LoginComponent implements OnInit {
 
     this.http.post(url, this.dto).subscribe(isValid => {
       if (isValid) {
-        sessionStorage.setItem(
-          'token',
-          btoa(username + ':' + password)
-        );
+        
+        this.http.get('http://localhost:8080/secured', {
+          headers: new HttpHeaders()
+          .set('Authorization', 'Basic ' + btoa(username + ':' + password))
+        }).subscribe();
+
         this.router.navigate(['']);
       } else {
         alert("Authentication failed.");

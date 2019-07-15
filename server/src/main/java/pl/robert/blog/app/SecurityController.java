@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
-
-import java.util.Base64;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(value = "*", origins = "*", maxAge = 3600)
+@RequestMapping("/")
 class SecurityController {
 
     @PostMapping("/login")
@@ -20,12 +20,8 @@ class SecurityController {
         return dto.getUsername().equals("user") && dto.getPassword().equals("pass");
     }
 
-    @GetMapping("/user")
-    public Principal user(HttpServletRequest request) {
-        String authToken = request
-                .getHeader("Authorization")
-                .substring("Basic".length())
-                .trim();
-        return () -> new String(Base64.getDecoder().decode(authToken)).split(":")[0];
+    @GetMapping("/secured")
+    public HttpEntity<?> sayHello() {
+        return ResponseEntity.ok("Hello from secured area!");
     }
 }
