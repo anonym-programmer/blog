@@ -1,14 +1,11 @@
 package pl.robert.blog.app;
 
 import org.springframework.http.HttpHeaders;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Base64;
 
@@ -24,20 +21,14 @@ class SecurityController {
             String s = dto.getUsername() + ":" + dto.getPassword();
             headers.set("Authorization", Base64.getUrlEncoder().encodeToString(s.getBytes()));
 
-            return ResponseEntity.ok()
+            return ResponseEntity
+                    .ok()
                     .headers(headers)
                     .build();
         }
 
         return ResponseEntity
                 .badRequest()
-                .build();
-    }
-
-    @GetMapping("/secured")
-    public HttpEntity<?> sayHello() {
-        return ResponseEntity
-                .ok()
                 .build();
     }
 }

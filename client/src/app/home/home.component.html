@@ -1,6 +1,2 @@
 <a *ngIf="!authService.isAuthenticated()" routerLink="/login">Login</a>
 <button *ngIf="authService.isAuthenticated()" (click)="authService.logout()">Logout</button>
-
-<br>
-
-<input type="submit" value="test" (click)="secured()">

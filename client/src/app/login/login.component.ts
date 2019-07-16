@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { LoginDto } from '../shared/LoginDto.model';
+import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  
+export class LoginComponent {
+
   formGroup: FormGroup;
-  dto = new LoginDto();
 
-  constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder) { 
+  constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder) {
     this.createForm();
-  }
-
-  ngOnInit() {
   }
 
   createForm() {
@@ -28,17 +23,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(username: String, password: String)  {
+  login(username: String, password: String): void {
+
     let url = 'http://localhost:8080/login';
+    let data = { username: username, password: password };
 
-    this.dto.username = username;
-    this.dto.password = password;
-
-    this.http.post(url, this.dto).subscribe(() => {
-        sessionStorage.setItem('Authorization', 'Basic ' + btoa(username + ':' + password));
-        this.router.navigate(['']);
-    }, error => {
-      alert("Authentication failed.");
+    this.http.post(url, data).subscribe(() => {
+      sessionStorage.setItem('Authorization', 'Basic ' + btoa(username + ':' + password));
+      this.router.navigate(['']);
+    }, () => {
+      alert('Authentication failed.');
     });
   }
 }

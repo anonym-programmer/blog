@@ -2,18 +2,14 @@ import { Injectable } from '@angular/core';
 
 @Injectable({
     providedIn: 'root',
-  })
-  export class AuthService {
-  
-    constructor() {
-    }
-  
-    isAuthenticated() {
+})
+export class AuthService {
+
+    isAuthenticated(): boolean {
         return sessionStorage.getItem('Authorization') != null;
     }
 
-    logout() {
-        console.log('logout called!');
+    logout(): void {
         sessionStorage.removeItem('Authorization');
     }
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -7,16 +6,8 @@ import { AuthService } from '../auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
-
-  ngOnInit() {
-  }
-
-  secured() {
-    this.http.get('http://localhost:8080/secured').subscribe((res) => {
-      console.log(`IT WORKS => ${res}`);
-    });
+  constructor(private authService: AuthService) {
   }
 }
