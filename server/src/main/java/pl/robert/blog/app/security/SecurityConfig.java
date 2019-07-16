@@ -1,4 +1,7 @@
-package pl.robert.blog.app;
+package pl.robert.blog.app.security;
+
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -6,16 +9,26 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import pl.robert.blog.app.user.UserService;
+import pl.robert.blog.app.user.dto.UserDto;
+
 @Configuration
 @EnableWebSecurity
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    UserDto user;
+
+    public SecurityConfig(UserService service) {
+        user = service.find();
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("{noop}pass")
-                .roles("ADMIN");
+                .withUser(user.getUsername())
+                .password("{noop}".concat(user.getPassword()))
+                .roles(user.getRole());
     }
 
     @Override
@@ -28,6 +41,9 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .cors()
             .and()
-                .httpBasic();
+                .httpBasic()
+            .and()
+                .headers()
+                .frameOptions().sameOrigin();
     }
 }
