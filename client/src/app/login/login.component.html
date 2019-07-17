@@ -1,5 +1,16 @@
-<form [formGroup]="formGroup">
-    <input type="text" placeholder="username" formControlName="username" #username>
-    <input type="password" placeholder="password" formControlName="password" #password>
-    <input type="submit" value="login" (click)="login(username.value, password.value)">
+<form [formGroup]="formGroup" class="login-form">
+    <h1>Sign In</h1>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Username" formControlName="username" #username>
+        <mat-error *ngIf="formGroup.get('username').hasError('required')">
+            Please enter your <strong>username</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password" #password>
+        <mat-error *ngIf="formGroup.get('password').hasError('required')">
+            Please enter your <strong>password</strong>
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="login(username.value, password.value)">Login</button>
 </form>

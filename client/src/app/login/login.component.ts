@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -18,9 +18,13 @@ export class LoginComponent {
 
   createForm() {
     this.formGroup = this.formBuilder.group({
-      username: [''],
-      password: ['']
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
+  }
+
+  get fields() {
+    return this.formGroup.controls;
   }
 
   login(username: String, password: String): void {
