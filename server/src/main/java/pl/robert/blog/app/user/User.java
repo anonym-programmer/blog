@@ -1,6 +1,7 @@
 package pl.robert.blog.app.user;
 
 import lombok.Getter;
+import lombok.AllArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Getter
+@AllArgsConstructor
 class User {
 
     @Id

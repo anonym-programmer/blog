@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import pl.robert.blog.app.user.UserService;
+import pl.robert.blog.app.user.UserFacade;
 import pl.robert.blog.app.user.dto.UserDto;
 
 @Configuration
@@ -19,8 +19,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     UserDto user;
 
-    public SecurityConfig(UserService service) {
-        user = service.find();
+    public SecurityConfig(UserFacade facade) {
+        user = facade.find();
     }
 
     @Override

@@ -10,7 +10,7 @@ import pl.robert.blog.app.user.dto.UserDto;
 
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class UserService {
+public class UserFacade {
 
     UserRepository repository;
 

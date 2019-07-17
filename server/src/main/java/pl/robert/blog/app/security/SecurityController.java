@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import pl.robert.blog.app.user.dto.UserDto;
-import pl.robert.blog.app.user.UserService;
+import pl.robert.blog.app.user.UserFacade;
 
 import java.util.Base64;
 
@@ -26,8 +26,8 @@ class SecurityController {
     UserDto user;
 
     @Autowired
-    public SecurityController(UserService service) {
-        user = service.find();
+    public SecurityController(UserFacade facade) {
+        user = facade.find();
     }
 
     @PostMapping
