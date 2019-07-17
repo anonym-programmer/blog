@@ -1,8 +1,8 @@
 package pl.robert.blog.app.user.dto;
 
+import lombok.Getter;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 @Getter

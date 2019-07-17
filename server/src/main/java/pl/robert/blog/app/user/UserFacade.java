@@ -4,9 +4,9 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
 import pl.robert.blog.app.user.dto.UserDto;
+
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)

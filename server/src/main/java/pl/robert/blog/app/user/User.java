@@ -2,13 +2,15 @@ package pl.robert.blog.app.user;
 
 import lombok.Getter;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Entity
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 class User {
 

@@ -1,21 +1,21 @@
 package pl.robert.blog.app.security;
 
+import java.util.Base64;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import pl.robert.blog.app.user.UserFacade;
+import pl.robert.blog.app.user.dto.UserDto;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import pl.robert.blog.app.user.dto.UserDto;
-import pl.robert.blog.app.user.UserFacade;
-
-import java.util.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController(value = "/login")
 @CrossOrigin(value = "http://localhost:4200", maxAge = 3600)
