@@ -1,0 +1,11 @@
+$height: 25px;
+
+footer {
+  color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: $height;
+  line-height: $height;
+  background-color: #506a85;
+}
