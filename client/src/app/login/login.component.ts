@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
 
   formGroup: FormGroup;
 
-  constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder, private toastr: ToastrService) {
     this.createForm();
   }
 
@@ -23,10 +24,6 @@ export class LoginComponent {
     });
   }
 
-  get fields() {
-    return this.formGroup.controls;
-  }
-
   login(username: String, password: String): void {
 
     let url = 'http://localhost:8080/login';
@@ -34,9 +31,10 @@ export class LoginComponent {
 
     this.http.post(url, data).subscribe(() => {
       sessionStorage.setItem('Authorization', 'Basic ' + btoa(username + ':' + password));
+      this.toastr.success('You have successfully logged in!', 'Success');
       this.router.navigate(['']);
     }, () => {
-      alert('Authentication failed.');
+      this.toastr.error('Authentication failed!', 'Error', { timeOut: 3000 });
     });
   }
 }
