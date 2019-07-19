@@ -32,7 +32,7 @@ export class LoginComponent {
     this.http.post(url, data).subscribe(() => {
       sessionStorage.setItem('Authorization', 'Basic ' + btoa(username + ':' + password));
       this.toastr.success('You have successfully logged in!', 'Success');
-      this.router.navigate(['']);
+      this.router.navigate(['admin-panel']);
     }, () => {
       this.toastr.error('Authentication failed!', 'Error', { timeOut: 3000 });
     });
