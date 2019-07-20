@@ -15,6 +15,7 @@ import { HttpInterceptor } from './auth/http.interceptor';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AboutMeComponent } from './admin-panel/about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,

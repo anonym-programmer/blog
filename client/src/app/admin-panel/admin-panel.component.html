@@ -1,0 +1,42 @@
+<div id="admin-panel" class="row">
+    <div class="left-side col-3">
+        <h5>Current section: {{currentSection}}</h5>
+        <ul>
+            <li><a routerLink="/admin-panel/about-me"><button mat-stroked-button color="primary"
+                        (click)="setValue(1)">About me</button></a></li>
+            <li><a routerLink="/admin-panel"><button mat-stroked-button color="primary" (click)="setValue(2)">IN
+                        PROGRESS</button></a></li>
+            <li><a routerLink="/admin-panel"><button mat-stroked-button color="primary" (click)="setValue(3)">IN
+                        PROGRESS</button></a></li>
+            <li><a routerLink="/admin-panel"><button mat-stroked-button color="primary" (click)="setValue(4)">IN
+                        PROGRESS</button></a></li>
+            <li><a routerLink="/admin-panel"><button mat-stroked-button color="primary"
+                        (click)="setValue(5)">Default</button></a></li>
+        </ul>
+    </div>
+    <div class="right-side col-9">
+        <span [ngSwitch]="choice">
+            <span *ngSwitchCase='1'>
+                <app-about-me></app-about-me>
+            </span>
+            <span *ngSwitchCase='2'>
+                <p>IN PROGRESS</p>
+            </span>
+            <span *ngSwitchCase='3'>
+                <p>IN PROGRESS</p>
+            </span>
+            <span *ngSwitchCase='4'>
+                <p>IN PROGRESS</p>
+            </span>
+            <span *ngSwitchDefault>
+                <p id="default-section">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </span>
+        </span>
+    </div>
+</div>

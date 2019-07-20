@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
+import { AboutMeComponent } from './admin-panel/about-me/about-me.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,7 +14,12 @@ const routes: Routes = [
     path: 'admin-panel', 
     component: AdminPanelComponent,
     canActivate: [AuthGuard],
-    children: []
+    children: [
+      {
+        path: 'about-me',
+        component: AboutMeComponent
+      }
+    ]
   },
 
   { path: '*', redirectTo: '' }
