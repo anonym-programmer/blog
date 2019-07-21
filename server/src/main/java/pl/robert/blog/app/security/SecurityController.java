@@ -6,8 +6,8 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import pl.robert.blog.app.user.UserFacade;
-import pl.robert.blog.app.user.dto.UserDto;
+import pl.robert.blog.app.user.domain.UserFacade;
+import pl.robert.blog.app.user.domain.dto.UserDto;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;

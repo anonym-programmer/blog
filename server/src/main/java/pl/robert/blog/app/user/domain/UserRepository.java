@@ -1,4 +1,4 @@
-package pl.robert.blog.app.user;
+package pl.robert.blog.app.user.domain;
 
 import java.util.Optional;
 

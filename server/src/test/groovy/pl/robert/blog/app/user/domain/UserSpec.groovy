@@ -1,4 +1,9 @@
-package pl.robert.blog.app.user
+package groovy.pl.robert.blog.app.user.domain
+
+import pl.robert.blog.app.user.domain.User
+import pl.robert.blog.app.user.domain.UserConfiguration
+import pl.robert.blog.app.user.domain.UserDetails
+import pl.robert.blog.app.user.domain.UserFacade
 
 import spock.lang.Shared
 import spock.lang.Specification
@@ -25,7 +30,7 @@ class UserSpec extends Specification {
 
     def 'Should find one user with default fields'() {
         when: 'we add user to db'
-        db.put(1L, new User(1L, 'Robert', '!23QweAsd#@!', 'ADMIN'))
+        db.put(1L, new User(1L, 'Robert', '!23QweAsd#@!', 'ADMIN', new UserDetails()))
 
         and: 'we find user'
         def user = facade.find()
