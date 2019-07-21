@@ -1,1 +1,8 @@
-<p>about-me works!</p>
+<form [formGroup]="formGroup" id="about-me">
+    <div class="form-group">
+        <quill-editor formControlName="editor" [style]="{'height':'320px'}"></quill-editor>
+    </div>
+    <button mat-stroked-button color="primary">View</button>
+    &nbsp;
+    <button mat-stroked-button color="primary" id="second-btn" (click)="submit()">Submit</button>
+</form>

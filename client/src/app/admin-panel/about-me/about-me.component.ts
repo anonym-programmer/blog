@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-about-me',
@@ -6,4 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./about-me.component.scss']
 })
 export class AboutMeComponent {
+ 
+  formGroup: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.formGroup = this.formBuilder.group({
+      'editor': new FormControl(null)
+    });
+  }
+
+  submit(): void {
+    
+  }
 }
