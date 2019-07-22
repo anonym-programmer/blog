@@ -1,12 +1,12 @@
-#about-me {
-  button {
-    border: #3f51b5;
-    border-style: solid;
-    font-weight: bold;
-    width: 10%;
-    float: left;
-  }
-  #second-btn {
-    margin-left: 5px;
-  }
+button {
+  float: left;
+}
+
+.content {
+  clear: both;
+  margin: 5%;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: justify;
+  text-justify: inter-word;
 }

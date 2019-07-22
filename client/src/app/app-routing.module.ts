@@ -9,6 +9,7 @@ import { AboutMeComponent } from './admin-panel/about-me/about-me.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'about-me', component: AboutMeComponent },
 
   {
     path: 'admin-panel', 

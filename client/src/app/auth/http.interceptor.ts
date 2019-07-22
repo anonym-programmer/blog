@@ -10,7 +10,7 @@ export class HttpInterceptor implements HttpInterceptor {
         const authorization: string = sessionStorage.getItem('Authorization');
 
         if (authorization) {
-            request = request.clone({ setHeaders: { 'Authorization': authorization } });
+            request = request.clone({ setHeaders: { 'Authorization': authorization, 'Content-Type': 'application/json' } });
         }
 
         return next.handle(request);

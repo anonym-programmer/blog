@@ -21,7 +21,7 @@ class UserDetails {
     @Id
     Long id;
 
-    @Column
+    @Column(length = 1000000)
     String details;
 
     @OneToOne(mappedBy = "details")

@@ -2,7 +2,7 @@
     <div class="navbar-brand">
         <ul class="navbar-item">
             <li routerLink="/"><a>Home</a></li>
-            <li><a>About me</a></li>
+            <li routerLink="/about-me"><a>About me</a></li>
             <li *ngIf="!authService.isAuthenticated()" routerLink="/login"><a>Login</a></li>
             <span *ngIf="authService.isAuthenticated()">
                 <li (click)="authService.logout()"><a>Logout</a></li>
