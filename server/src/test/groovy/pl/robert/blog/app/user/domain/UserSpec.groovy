@@ -8,6 +8,8 @@ import lombok.experimental.FieldDefaults
 
 import java.util.concurrent.ConcurrentHashMap
 
+import pl.robert.blog.app.user.domain.dto.UserDetailsDto
+
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -47,5 +49,22 @@ class UserSpec extends Specification {
 
         then: 'exception is thrown'
         thrown UsernameNotFoundException
+    }
+
+    def 'Should save and update details'() {
+        when: 'we add user to db'
+        db.put(1L, new User(1L, null, null, null, new UserDetails()))
+
+        and: 'we save details'
+        facade.saveDetails(new UserDetailsDto('<h1>Hello</h1>'))
+
+        then: 'user has this details'
+        facade.findDetails().details == '<h1>Hello</h1>'
+
+        and: 'we save again details'
+        facade.saveDetails(new UserDetailsDto('<h1>HelloWorld</h1>'))
+
+        then: 'user details has been updated'
+        facade.findDetails().details == '<h1>HelloWorld</h1>'
     }
 }
