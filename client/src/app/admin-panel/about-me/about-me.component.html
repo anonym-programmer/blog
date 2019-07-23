@@ -1,0 +1,7 @@
+<form [formGroup]="formGroup" *ngIf="!isUrlNotAuth()">
+    <div class="form-group">
+        <quill-editor formControlName="editor"></quill-editor>
+    </div>
+    <button mat-stroked-button color="primary" id="second-btn" (click)="submit()">Submit</button>
+</form>
+<div class="content" [innerHTML]="details"></div>

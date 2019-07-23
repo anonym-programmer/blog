@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-admin-panel',
@@ -6,4 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-panel.component.scss']
 })
 export class AdminPanelComponent {
+
+  public choice: any;
+  public currentSection: String;
+
+  constructor() {
+    this.choice = '';
+    this.currentSection = 'Default';
+  }
+
+  setValue(ch: any): void {
+    this.choice = ch;
+    switch (ch) {
+      case 1: this.currentSection = 'About me'; break;
+      case 2: this.currentSection = 'IN PROGRESS'; break;
+      case 3: this.currentSection = 'IN PROGRESS'; break;
+      case 4: this.currentSection = 'IN PROGRESS'; break;
+      default: this.currentSection = 'Default';
+    }
+  }
 }

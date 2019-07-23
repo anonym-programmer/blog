@@ -1,0 +1,36 @@
+#admin-panel,
+.row {
+  margin: 0;
+  margin: 5% 0 10% 0;
+
+  .left-side {
+
+    ul {
+      list-style-type: none;
+      margin-bottom: 10%;
+
+      li {
+        margin: 0 0 10px 0;
+      }
+
+      button {
+        border: #3f51b5;
+        border-style: solid;
+        font-weight: bold;
+        width: 80%;
+        white-space: normal !important;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  .right-side {
+    #default-section {
+      margin: 0 5%;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  }
+}

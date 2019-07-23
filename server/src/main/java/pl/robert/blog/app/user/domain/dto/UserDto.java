@@ -1,4 +1,4 @@
-package pl.robert.blog.app.user.dto;
+package pl.robert.blog.app.user.domain.dto;
 
 import lombok.Getter;
 import lombok.AccessLevel;
@@ -13,4 +13,5 @@ public class UserDto {
     String username;
     String password;
     String role;
+    String userDetails;
 }
