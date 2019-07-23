@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/auth/auth.service';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-about-me',
@@ -15,7 +15,7 @@ export class AboutMeComponent {
 
   details: String;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private toastr: ToastrService, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private toastr: ToastrService, private url: LocationStrategy) {
     this.view();
     this.createForm();
   }
@@ -40,5 +40,9 @@ export class AboutMeComponent {
     this.http.get('http://localhost:8080/api/user').subscribe(res => {
       this.details = res['details'];
     });
+  }
+
+  isUrlNotAuth(): boolean {
+    return this.url.path() === '/about-me';
   }
 }
