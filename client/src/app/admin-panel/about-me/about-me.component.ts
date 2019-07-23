@@ -28,16 +28,16 @@ export class AboutMeComponent {
 
   submit(): void {
     let htmlCode = { details: this.formGroup.get('editor').value };
-    this.http.patch('http://localhost:8080/api/admin', htmlCode).subscribe(() => {
+    this.http.patch('/api/admin', htmlCode).subscribe(() => {
       this.view();
-      this.toastr.success('Success', 'Successfully edited!');
+      this.toastr.success('Successfully edited!', 'Success');
     }, () => {
-      this.toastr.error('Error', 'Something went wrong!');
+      this.toastr.error('Something went wrong!', 'Error');
     });
   }
 
   view(): void {
-    this.http.get('http://localhost:8080/api/user').subscribe(res => {
+    this.http.get('/api/user').subscribe(res => {
       this.details = res['details'];
     });
   }

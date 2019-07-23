@@ -35,8 +35,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/login", "/api/user").permitAll()
-                .antMatchers("/api/admin*").authenticated()
+                .antMatchers(NOT_AUTHENTICATED_API).permitAll()
+                .antMatchers(AUTHENTICATED_API).authenticated()
                 .anyRequest().authenticated()
             .and()
                 .cors()
@@ -46,4 +46,13 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers()
                 .frameOptions().sameOrigin();
     }
+
+    private static final String[] NOT_AUTHENTICATED_API = {
+            "/api/login*",
+            "/api/user*"
+    };
+
+    private static final String[] AUTHENTICATED_API = {
+            "/api/admin*"
+    };
 }

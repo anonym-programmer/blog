@@ -1,9 +1,4 @@
-package groovy.pl.robert.blog.app.user.domain
-
-import pl.robert.blog.app.user.domain.User
-import pl.robert.blog.app.user.domain.UserConfiguration
-import pl.robert.blog.app.user.domain.UserDetails
-import pl.robert.blog.app.user.domain.UserFacade
+package pl.robert.blog.app.user.domain
 
 import spock.lang.Shared
 import spock.lang.Specification

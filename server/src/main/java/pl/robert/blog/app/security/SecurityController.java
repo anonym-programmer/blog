@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@RestController(value = "/login")
+@RestController(value = "/api/login")
 @CrossOrigin(value = "http://localhost:4200", maxAge = 3600)
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)

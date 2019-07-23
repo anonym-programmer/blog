@@ -26,7 +26,7 @@ export class LoginComponent {
 
   login(username: String, password: String): void {
 
-    let url = 'http://localhost:8080/login';
+    let url = '/api/login';
     let data = { username: username, password: password };
 
     this.http.post(url, data).subscribe(() => {
