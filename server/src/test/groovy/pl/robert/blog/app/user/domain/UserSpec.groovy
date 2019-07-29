@@ -1,5 +1,6 @@
 package pl.robert.blog.app.user.domain
 
+import pl.robert.blog.app.user.domain.dto.ChangePasswordDto
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -66,5 +67,23 @@ class UserSpec extends Specification {
 
         then: 'user details has been updated'
         facade.findDetails().details == '<h1>HelloWorld</h1>'
+
+        and: 'we delete user from db'
+        db.clear()
+    }
+
+    def 'Should change password'() {
+        given: 'old password and new password'
+        String oldPassword = 'pass123'
+        String newPassword = 'pass321'
+
+        when: 'we add user to db'
+        db.put(1L, new User(1L, 's', oldPassword, 's', new UserDetails()))
+
+        and: 'we change password'
+        facade.changePassword(new ChangePasswordDto(oldPassword, newPassword))
+
+        then: 'user has this new password'
+        facade.find().password == newPassword
     }
 }
