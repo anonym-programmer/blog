@@ -19,7 +19,7 @@ export class AdminPanelComponent {
     this.choice = ch;
     switch (ch) {
       case 1: this.currentSection = 'About me'; break;
-      case 2: this.currentSection = 'IN PROGRESS'; break;
+      case 2: this.currentSection = 'Change password'; break;
       case 3: this.currentSection = 'IN PROGRESS'; break;
       case 4: this.currentSection = 'IN PROGRESS'; break;
       default: this.currentSection = 'Default';

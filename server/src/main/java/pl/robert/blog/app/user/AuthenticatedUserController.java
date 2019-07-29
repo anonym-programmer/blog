@@ -8,10 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import pl.robert.blog.app.user.domain.UserFacade;
+import pl.robert.blog.app.user.domain.dto.ChangePasswordDto;
 import pl.robert.blog.app.user.domain.dto.UserDetailsDto;
 
-@RestController(value = "/api/admin")
-@CrossOrigin(value = "http://localhost:4200", maxAge = 3600)
+@RestController
+@RequestMapping("/api/admin")
+@CrossOrigin("http://localhost:4200")
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 class AuthenticatedUserController {
@@ -21,5 +23,10 @@ class AuthenticatedUserController {
     @PatchMapping
     public ResponseEntity updateDetails(@RequestBody UserDetailsDto dto) {
         return ResponseEntity.ok(facade.saveDetails(dto));
+    }
+
+    @PatchMapping("password")
+    public ResponseEntity changePassword(@RequestBody ChangePasswordDto dto) {
+        return ResponseEntity.ok(facade.changePassword(dto));
     }
 }
