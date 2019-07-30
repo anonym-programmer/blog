@@ -1,6 +1,7 @@
 package pl.robert.blog.app.user.domain
 
 import pl.robert.blog.app.user.domain.dto.ChangePasswordDto
+import pl.robert.blog.app.user.domain.exception.InvalidPasswordException
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -102,6 +103,6 @@ class UserSpec extends Specification {
         facade.changePassword(new ChangePasswordDto(password, 'newPass'))
 
         then: 'exception is thrown'
-        thrown(Exception)
+        thrown(InvalidPasswordException)
     }
 }

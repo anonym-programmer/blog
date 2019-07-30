@@ -9,9 +9,9 @@ import pl.robert.blog.app.user.domain.dto.UserDto;
 import pl.robert.blog.app.user.domain.dto.UserDetailsDto;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import pl.robert.blog.app.user.domain.exception.InvalidPasswordException;
 
 import javax.transaction.Transactional;
-
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -50,6 +50,11 @@ public class UserFacade {
     }
 
     public String changePassword(ChangePasswordDto dto) {
+
+        if (!find().getPassword().equals(dto.getOldPassword())) {
+            throw new InvalidPasswordException("Old password do not equal current password!");
+        }
+
         return repository.findById(1L)
                 .stream()
                 .peek(user -> user.setPassword(dto.getNewPassword()))

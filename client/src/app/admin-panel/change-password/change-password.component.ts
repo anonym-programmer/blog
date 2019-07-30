@@ -30,8 +30,12 @@ export class ChangePasswordComponent {
 
     this.http.patch(url, data).subscribe(() => {
       this.toastr.success('You have successfully changed your password!', 'Success');
-    }, () => {
-      this.toastr.error('Something went wrong!', 'Error');
+    }, (error) => {
+      if (error.error.message != null) {
+        this.toastr.error(error.error.message, 'Error');
+      } else {
+        this.toastr.error('Something went wrong!', 'Error');
+      }
     })
   }
 }
