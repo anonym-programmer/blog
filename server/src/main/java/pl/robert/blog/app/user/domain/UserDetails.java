@@ -5,12 +5,12 @@ import lombok.Setter;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
-import pl.robert.blog.app.user.domain.dto.UserDetailsDto;
-
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+
+import pl.robert.blog.app.user.domain.dto.UserDetailsDto;
 
 @Entity
 @Getter

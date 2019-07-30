@@ -1,9 +1,9 @@
 package pl.robert.blog.app.user.domain.dto;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Getter

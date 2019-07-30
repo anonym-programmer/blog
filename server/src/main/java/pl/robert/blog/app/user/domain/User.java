@@ -1,12 +1,11 @@
 package pl.robert.blog.app.user.domain;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import pl.robert.blog.app.user.domain.dto.UserDto;
 
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -14,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.CascadeType;
+
+import pl.robert.blog.app.user.domain.dto.UserDto;
 
 @Entity
 @Getter

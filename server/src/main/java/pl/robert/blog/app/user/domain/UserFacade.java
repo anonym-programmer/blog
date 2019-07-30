@@ -4,19 +4,21 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import pl.robert.blog.app.user.domain.dto.ChangePasswordDto;
-import pl.robert.blog.app.user.domain.dto.UserDto;
-import pl.robert.blog.app.user.domain.dto.UserDetailsDto;
-
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import pl.robert.blog.app.user.domain.exception.InvalidPasswordException;
-
-import javax.transaction.Transactional;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
+import pl.robert.blog.app.user.domain.dto.UserDto;
+import pl.robert.blog.app.user.domain.dto.UserDetailsDto;
+import pl.robert.blog.app.user.domain.dto.ChangePasswordDto;
+
+import pl.robert.blog.app.user.domain.exception.InvalidPasswordException;
+
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+@Transactional
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Transactional
 public class UserFacade {
 
     UserRepository repository;
