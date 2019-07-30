@@ -85,5 +85,23 @@ class UserSpec extends Specification {
 
         then: 'user has this new password'
         facade.find().password == newPassword
+
+        and: 'we delete user from db'
+        db.clear()
+    }
+
+    def 'Should throw an exception cause given password not equal actual password'() {
+        given: 'password and actual password'
+        String password = 'pass123'
+        String actualPassword = 'pass321'
+
+        when: 'we add user to db'
+        db.put(1L, new User(1L, 's', actualPassword, 's', new UserDetails()))
+
+        and: 'we try to change password'
+        facade.changePassword(new ChangePasswordDto(password, 'newPass'))
+
+        then: 'exception is thrown'
+        thrown(Exception)
     }
 }
