@@ -1,6 +1,7 @@
 package pl.robert.blog.app.security;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import pl.robert.blog.app.user.domain.UserFacade;
@@ -14,17 +15,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    UserDto user;
-
-    public SecurityConfig(UserFacade facade) {
-        user = facade.find();
-    }
+    UserFacade facade;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        UserDto user = facade.find();
         auth.inMemoryAuthentication()
                 .withUser(user.getUsername())
                 .password("{noop}".concat(user.getPassword()))

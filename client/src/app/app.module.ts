@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AboutMeComponent } from './admin-panel/about-me/about-me.component';
+import { ChangePasswordComponent } from './admin-panel/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AboutMeComponent } from './admin-panel/about-me/about-me.component';
     HeaderComponent,
     FooterComponent,
     AdminPanelComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

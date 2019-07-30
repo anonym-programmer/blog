@@ -4,12 +4,15 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import pl.robert.blog.app.user.domain.dto.ChangePasswordDto;
 import pl.robert.blog.app.user.domain.dto.UserDto;
 import pl.robert.blog.app.user.domain.dto.UserDetailsDto;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import pl.robert.blog.app.user.domain.exception.InvalidPasswordException;
 
 import javax.transaction.Transactional;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -44,5 +47,18 @@ public class UserFacade {
                 .map(UserDetails::query)
                 .findFirst()
                 .orElseThrow(() -> new UsernameNotFoundException("User not found!"));
+    }
+
+    public String changePassword(ChangePasswordDto dto) {
+
+        if (!find().getPassword().equals(dto.getOldPassword())) {
+            throw new InvalidPasswordException("Old password do not equal current password!");
+        }
+
+        return repository.findById(1L)
+                .stream()
+                .peek(user -> user.setPassword(dto.getNewPassword()))
+                .map(User::getPassword)
+                .collect(Collectors.joining());
     }
 }

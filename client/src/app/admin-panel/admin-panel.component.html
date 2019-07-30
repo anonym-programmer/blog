@@ -4,8 +4,8 @@
         <ul>
             <li><a routerLink="/admin-panel/about-me"><button mat-stroked-button color="primary"
                         (click)="setValue(1)">About me</button></a></li>
-            <li><a routerLink="/admin-panel"><button mat-stroked-button color="primary" (click)="setValue(2)">IN
-                        PROGRESS</button></a></li>
+            <li><a routerLink="/admin-panel/change-password"><button mat-stroked-button color="primary"
+                        (click)="setValue(2)">Change password</button></a></li>
             <li><a routerLink="/admin-panel"><button mat-stroked-button color="primary" (click)="setValue(3)">IN
                         PROGRESS</button></a></li>
             <li><a routerLink="/admin-panel"><button mat-stroked-button color="primary" (click)="setValue(4)">IN
@@ -20,7 +20,7 @@
                 <app-about-me></app-about-me>
             </span>
             <span *ngSwitchCase='2'>
-                <p>IN PROGRESS</p>
+                <app-change-password></app-change-password>
             </span>
             <span *ngSwitchCase='3'>
                 <p>IN PROGRESS</p>
