@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin-panel',
@@ -20,7 +20,7 @@ export class AdminPanelComponent {
     switch (ch) {
       case 1: this.currentSection = 'About me'; break;
       case 2: this.currentSection = 'Change password'; break;
-      case 3: this.currentSection = 'IN PROGRESS'; break;
+      case 3: this.currentSection = 'Posts management'; break;
       case 4: this.currentSection = 'IN PROGRESS'; break;
       default: this.currentSection = 'Default';
     }

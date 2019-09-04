@@ -18,6 +18,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AboutMeComponent } from './admin-panel/about-me/about-me.component';
 import { ChangePasswordComponent } from './admin-panel/change-password/change-password.component';
+import { PostsManagementComponent } from './admin-panel/posts-management/posts-management.component';
+import { AddPostComponent } from './admin-panel/posts-management/add-post/add-post.component';
+import { EditPostComponent } from './admin-panel/posts-management/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ChangePasswordComponent } from './admin-panel/change-password/change-pa
     FooterComponent,
     AdminPanelComponent,
     AboutMeComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    PostsManagementComponent,
+    AddPostComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

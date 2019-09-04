@@ -1,0 +1,25 @@
+ul {
+  list-style-type: none;
+
+  li {
+    margin: 10px 25px 0 0;
+    display: inline;
+  }
+
+  button {
+    border: #3f51b5;
+    border-style: solid;
+    font-weight: bold;
+    width: 30%;
+    white-space: normal !important;
+    word-wrap: break-word;
+  }
+}
+
+#default-section {
+  margin: 0 5%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: justify;
+  text-justify: inter-word;
+}

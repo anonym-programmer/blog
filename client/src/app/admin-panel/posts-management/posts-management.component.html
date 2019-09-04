@@ -1,0 +1,30 @@
+<div>
+    <h5>Current section: {{currentSection}}</h5>
+    <ul>
+        <li><a routerLink="/admin-panel/posts-management/add"><button mat-stroked-button color="primary"
+                    (click)="setValue(1)">Add post</button></a></li>
+        <li><a routerLink="/admin-panel/posts-management/edit"><button mat-stroked-button color="primary"
+                    (click)="setValue(2)">Edit posts</button></a></li>
+        <li><a routerLink="/admin-panel/posts-management"><button mat-stroked-button color="primary"
+                    (click)="setValue(3)">Default</button></a></li>
+    </ul>
+</div>
+<div>
+    <span [ngSwitch]="choice">
+        <span *ngSwitchCase='1'>
+            <app-add-post></app-add-post>
+        </span>
+        <span *ngSwitchCase='2'>
+            <app-edit-post></app-edit-post>
+        </span>
+        <span *ngSwitchDefault>
+            <p id="default-section">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </span>
+    </span>
+</div>
