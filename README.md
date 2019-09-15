@@ -1,1 +1,1 @@
-# PROGRAMMING BLOG IN PROGRESS!
+# I get bored about this project :) Let's start another!
